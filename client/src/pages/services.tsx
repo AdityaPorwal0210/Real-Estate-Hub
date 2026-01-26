@@ -2,20 +2,18 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Upload, CheckCircle2 } from "lucide-react";
-import serviceImage from "@/assets/service-docs.jpg";
+import { Upload, CheckCircle2, FileText, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-// Mock component for file upload
 function FileUpload({ label }: { label: string }) {
   return (
     <div className="space-y-2">
-      <Label>{label}</Label>
-      <div className="border-2 border-dashed border-slate-200 rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-slate-50 transition-colors cursor-pointer">
-        <Upload className="h-8 w-8 text-slate-400 mb-2" />
-        <p className="text-sm font-medium text-slate-600">Click to upload or drag and drop</p>
-        <p className="text-xs text-slate-400">PDF, JPG up to 10MB</p>
+      <Label className="text-xs font-bold uppercase text-slate-500">{label}</Label>
+      <div className="border-2 border-dashed border-slate-200 rounded p-6 flex flex-col items-center justify-center text-center hover:bg-slate-50 transition-colors cursor-pointer bg-white">
+        <Upload className="h-6 w-6 text-[#003366] mb-2" />
+        <p className="text-[10px] font-bold text-slate-600 uppercase">Upload Document</p>
+        <p className="text-[9px] text-slate-400 mt-1">MAX 10MB (PDF/JPG)</p>
         <Input type="file" className="hidden" />
       </div>
     </div>
@@ -25,88 +23,91 @@ function FileUpload({ label }: { label: string }) {
 const serviceDetails = [
   {
     id: "lease",
-    title: "Lease Renewal",
-    description: "Extend your rental agreement legally with proper documentation.",
-    docs: ["Previous Lease Deed", "ID Proof of Landlord & Tenant", "Photos"]
-  },
-  {
-    id: "registry",
-    title: "Property Registry",
-    description: "Official recording of property ownership in government records.",
-    docs: ["Sale Deed Draft", "Encumbrance Certificate", "Identity Proofs", "PAN Cards"]
+    title: "E-Registration",
+    description: "Online registration of property documents and deeds.",
+    docs: ["Previous Deed", "ID Proof", "Photos"]
   },
   {
     id: "estamp",
     title: "E-Stamp Paper",
-    description: "Secure digital stamp paper for all legal agreements.",
-    docs: ["Purpose of Stamp Paper", "First Party Details", "Second Party Details"]
+    description: "Generate and pay for electronic stamp papers.",
+    docs: ["First Party ID", "Second Party ID", "Agreement Draft"]
   }
 ];
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#f4f7f9]">
       <Navbar />
       
-      {/* Header */}
-      <div className="bg-slate-900 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl font-heading font-bold text-white sm:text-4xl">
-            Our Services
+      <div className="bg-[#003366] py-12">
+        <div className="container mx-auto px-4">
+          <h1 className="text-2xl font-bold text-white uppercase tracking-wider text-center">
+            Online Services
           </h1>
-          <p className="mt-4 text-slate-300 max-w-2xl mx-auto">
-            Upload your documents securely and let us handle the complexities of legal processing.
-            Following Sampada 2.0 guidelines.
+          <p className="mt-2 text-white/70 text-sm text-center max-w-2xl mx-auto">
+            Access government real estate services through our simplified interface.
           </p>
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-3">
-          {/* Service Navigation (Sticky on Desktop) */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-24 space-y-4">
-              <h3 className="font-heading font-bold text-lg mb-4">Select a Service</h3>
-              {serviceDetails.map((service) => (
-                <a
-                  key={service.id}
-                  href={`#${service.id}`}
-                  className="block p-4 rounded-lg border bg-white hover:border-primary hover:shadow-md transition-all"
-                >
-                  <div className="font-medium text-slate-900">{service.title}</div>
-                  <div className="text-sm text-slate-500 mt-1">{service.description}</div>
-                </a>
-              ))}
-            </div>
+      <main className="container mx-auto px-4 py-12">
+        <div className="grid gap-8 lg:grid-cols-4">
+          <div className="lg:col-span-1 space-y-4">
+            <h3 className="text-xs font-bold text-[#003366] uppercase tracking-widest mb-4">Categories</h3>
+            {serviceDetails.map((service) => (
+              <a
+                key={service.id}
+                href={`#${service.id}`}
+                className="flex items-center justify-between p-4 bg-white border rounded shadow-sm hover:border-[#003366] transition-all group"
+              >
+                <span className="text-sm font-bold text-slate-700">{service.title}</span>
+                <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-[#003366]" />
+              </a>
+            ))}
           </div>
 
-          {/* Service Details & Forms */}
-          <div className="lg:col-span-2 space-y-16">
+          <div className="lg:col-span-3 space-y-12">
             {serviceDetails.map((service) => (
               <section key={service.id} id={service.id} className="scroll-mt-24">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-2xl text-primary">{service.title}</CardTitle>
-                    <CardDescription>Required documents as per Sampada 2.0</CardDescription>
+                <Card className="sampada-card">
+                  <CardHeader className="border-b border-slate-100 bg-slate-50/50">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-[#003366] p-2 rounded text-white">
+                        <FileText className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg font-bold text-[#003366] uppercase">{service.title}</CardTitle>
+                        <CardDescription className="text-xs">{service.description}</CardDescription>
+                      </div>
+                    </div>
                   </CardHeader>
-                  <CardContent className="space-y-6">
-                    <div className="bg-slate-50 p-4 rounded-md">
-                      <h4 className="font-semibold mb-2 flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-600" />
-                        Checklist
+                  <CardContent className="p-8 space-y-8">
+                    <div className="grid gap-4 bg-blue-50/50 p-4 rounded border border-blue-100">
+                      <h4 className="text-xs font-bold text-[#003366] uppercase flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4" />
+                        Required Documents Checklist
                       </h4>
-                      <ul className="list-disc list-inside text-sm text-slate-600 space-y-1 ml-1">
-                        {service.docs.map(doc => <li key={doc}>{doc}</li>)}
-                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        {service.docs.map(doc => (
+                          <span key={doc} className="bg-white px-3 py-1 rounded-full text-[10px] font-bold text-slate-600 border border-slate-200">
+                            {doc}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     
-                    <div className="grid gap-4 sm:grid-cols-2">
+                    <div className="grid gap-6 sm:grid-cols-3">
                       {service.docs.map((doc, i) => (
-                        <FileUpload key={i} label={`Upload ${doc}`} />
+                        <FileUpload key={i} label={doc} />
                       ))}
                     </div>
 
-                    <Button className="w-full mt-4">Proceed with Application</Button>
+                    <div className="pt-4">
+                      <Button className="w-full sampada-btn-primary py-6 uppercase tracking-widest font-bold">
+                        Proceed to Application
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               </section>

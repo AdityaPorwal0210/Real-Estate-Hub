@@ -2,79 +2,47 @@ import { Link } from "wouter";
 
 export function Footer() {
   return (
-    <footer className="border-t bg-slate-50">
-      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-sm text-white">
-                <span className="font-heading font-bold">L</span>
+    <footer className="mt-20 bg-[#002244] text-white/70 py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-white p-1 rounded-full w-fit">
+                <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
               </div>
-              <span className="font-heading text-xl font-bold tracking-tight text-slate-900">
-                LegalEstates
+              <span className="text-white font-bold text-lg leading-tight uppercase">
+                Sampada 2.0
               </span>
             </div>
-            <p className="text-sm text-slate-500">
-              Your trusted partner for all real estate legal services. Simplifiying property documentation for families.
+            <p className="text-sm leading-relaxed max-w-md">
+              The Department of Registration and Stamps is one of the most important departments of the government. Its main purpose is to maintain property documents and provide legal security to owners.
             </p>
           </div>
 
           <div>
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-slate-900">
-              Services
-            </h3>
-            <ul className="mt-4 space-y-2">
-              <li>
-                <Link href="/services">
-                  <a className="text-sm text-slate-600 hover:text-primary">Lease Renewal</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/services">
-                  <a className="text-sm text-slate-600 hover:text-primary">Property Registry</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/services">
-                  <a className="text-sm text-slate-600 hover:text-primary">E-Stamp</a>
-                </Link>
-              </li>
+            <h3 className="text-white font-bold mb-6 uppercase text-sm tracking-wider">Useful Links</h3>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="/"><a className="hover:text-[#ffc107]">Home</a></Link></li>
+              <li><Link href="/services"><a className="hover:text-[#ffc107]">Services</a></Link></li>
+              <li><Link href="/calculator"><a className="hover:text-[#ffc107]">Calculators</a></Link></li>
+              <li><a href="#" className="hover:text-[#ffc107]">Privacy Policy</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-slate-900">
-              Resources
-            </h3>
-            <ul className="mt-4 space-y-2">
-              <li>
-                <Link href="/calculator">
-                  <a className="text-sm text-slate-600 hover:text-primary">Stamp Duty Calculator</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/calculator">
-                  <a className="text-sm text-slate-600 hover:text-primary">Registration Fees</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-slate-900">
-              Contact
-            </h3>
-            <ul className="mt-4 space-y-2">
-              <li className="text-sm text-slate-600">contact@legalestates.com</li>
-              <li className="text-sm text-slate-600">+91 98765 43210</li>
-              <li className="text-sm text-slate-600">123 Business Park, City</li>
-            </ul>
+            <h3 className="text-white font-bold mb-6 uppercase text-sm tracking-wider">Contact Us</h3>
+            <p className="text-sm mb-4">
+              Paryawas Bhawan, 1st Floor, Block-2, Mother Teresa Road, Arera Hills, Bhopal (M.P.) - 462011
+            </p>
+            <div className="space-y-2 text-sm">
+              <p>Email: helpdesk@mpigr.gov.in</p>
+              <p>Phone: 0755-2573849</p>
+            </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-slate-200 pt-8 text-center">
-          <p className="text-sm text-slate-400">
-            &copy; {new Date().getFullYear()} LegalEstates. All rights reserved.
-          </p>
+        
+        <div className="mt-12 pt-8 border-t border-white/10 text-center text-xs">
+          <p>© {new Date().getFullYear()} Directorate of Registration and Stamps, Govt of MP. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

@@ -16,16 +16,12 @@ export function Calculator() {
     const val = Number(propertyValue);
     if (!val) return;
 
-    // Mock calculation logic inspired by typical Indian state rules
-    // Residential: 5-7%, Commercial: 7-9%
-    // Women often get 1% concession
-    
     let baseRate = propertyType === "residential" ? 0.05 : 0.07;
     if (gender === "female") baseRate -= 0.01;
     if (gender === "joint") baseRate -= 0.005;
 
     const stampDuty = val * baseRate;
-    const registrationFee = Math.min(val * 0.01, 30000); // 1% capped at 30k mock rule
+    const registrationFee = Math.min(val * 0.01, 30000); 
     
     setResult({
       stampDuty,
@@ -36,29 +32,30 @@ export function Calculator() {
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
-      <Card className="shadow-lg">
-        <CardHeader>
-          <CardTitle>Fee Calculator</CardTitle>
+      <Card className="sampada-card border-t-4 border-t-[#ffc107]">
+        <CardHeader className="bg-slate-50/50">
+          <CardTitle className="text-[#003366] font-bold uppercase text-sm">Fee Calculator</CardTitle>
           <CardDescription>
             Enter property details to estimate Stamp Duty and Registration Fees.
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 pt-6">
           <div className="space-y-2">
-            <Label htmlFor="property-value">Property Value (₹)</Label>
+            <Label htmlFor="property-value" className="text-xs font-bold uppercase text-slate-500">Property Value (₹)</Label>
             <Input
               id="property-value"
               type="number"
               placeholder="Enter market value"
               value={propertyValue}
               onChange={(e) => setPropertyValue(Number(e.target.value))}
+              className="border-slate-200 focus:border-[#003366] focus:ring-[#003366]"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="property-type">Property Type</Label>
+            <Label htmlFor="property-type" className="text-xs font-bold uppercase text-slate-500">Property Type</Label>
             <Select value={propertyType} onValueChange={setPropertyType}>
-              <SelectTrigger id="property-type">
+              <SelectTrigger id="property-type" className="border-slate-200">
                 <SelectValue placeholder="Select type" />
               </SelectTrigger>
               <SelectContent>
@@ -71,57 +68,56 @@ export function Calculator() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="gender">Owner Gender (for concession)</Label>
+            <Label htmlFor="gender" className="text-xs font-bold uppercase text-slate-500">Owner Gender</Label>
             <Select value={gender} onValueChange={setGender}>
-              <SelectTrigger id="gender">
+              <SelectTrigger id="gender" className="border-slate-200">
                 <SelectValue placeholder="Select gender" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="male">Male</SelectItem>
                 <SelectItem value="female">Female</SelectItem>
                 <SelectItem value="joint">Joint (M+F)</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
-          <Button onClick={calculateFees} className="w-full mt-4" size="lg">
-            Calculate Now
+          <Button onClick={calculateFees} className="w-full mt-4 sampada-btn-primary py-6" size="lg">
+            CALCULATE NOW
           </Button>
         </CardContent>
       </Card>
 
-      <Card className="shadow-lg bg-slate-50 border-slate-200">
-        <CardHeader>
-          <CardTitle>Calculation Summary</CardTitle>
+      <Card className="sampada-card border-t-4 border-t-[#003366]">
+        <CardHeader className="bg-slate-50/50">
+          <CardTitle className="text-[#003366] font-bold uppercase text-sm">Calculation Summary</CardTitle>
           <CardDescription>Estimated costs breakdown</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="pt-6">
           {result ? (
             <div className="space-y-6">
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="text-slate-500">Stamp Duty</div>
-                <div className="text-right font-medium">₹ {result.stampDuty.toLocaleString('en-IN')}</div>
+                <div className="text-slate-500 font-medium">Stamp Duty</div>
+                <div className="text-right font-bold text-[#003366]">₹ {result.stampDuty.toLocaleString('en-IN')}</div>
                 
-                <div className="text-slate-500">Registration Fee</div>
-                <div className="text-right font-medium">₹ {result.registrationFee.toLocaleString('en-IN')}</div>
+                <div className="text-slate-500 font-medium">Registration Fee</div>
+                <div className="text-right font-bold text-[#003366]">₹ {result.registrationFee.toLocaleString('en-IN')}</div>
               </div>
               
               <Separator />
               
               <div className="flex justify-between items-center">
-                <div className="font-heading text-lg font-bold text-primary">Total Estimated</div>
-                <div className="font-heading text-2xl font-bold text-primary">
+                <div className="text-sm font-bold text-[#003366] uppercase">Total Estimated</div>
+                <div className="text-2xl font-bold text-[#003366]">
                   ₹ {result.total.toLocaleString('en-IN')}
                 </div>
               </div>
 
-              <div className="text-xs text-slate-500 mt-4 p-3 bg-yellow-50 border border-yellow-100 rounded-md">
-                * Note: This is an estimation. Actual fees may vary based on exact location, cess, and local municipal rules.
+              <div className="text-[10px] text-slate-500 mt-4 p-3 bg-blue-50 border border-blue-100 rounded">
+                * Note: This is an estimation based on standard Sampada 2.0 logic. Actual fees may vary.
               </div>
             </div>
           ) : (
-            <div className="h-48 flex items-center justify-center text-slate-400 text-sm">
+            <div className="h-48 flex items-center justify-center text-slate-400 text-sm italic">
               Enter details to see breakdown
             </div>
           )}
