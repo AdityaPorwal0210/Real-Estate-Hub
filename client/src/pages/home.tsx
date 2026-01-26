@@ -1,8 +1,9 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FileText, Calculator, ShieldCheck, ClipboardCheck, ArrowRight, BookOpen, Search } from "lucide-react";
+import { FileText, Calculator, ShieldCheck, ClipboardCheck, ArrowRight, BookOpen, Search, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const mainActions = [
