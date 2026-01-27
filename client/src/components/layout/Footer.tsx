@@ -11,11 +11,11 @@ export function Footer() {
                 <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
               </div>
               <span className="text-white font-bold text-lg leading-tight uppercase">
-                Sampada 2.0
+                Sampada 2.0 - Jabalpur
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-md">
-              The Department of Registration and Stamps is one of the most important departments of the government. Its main purpose is to maintain property documents and provide legal security to owners.
+              Authorized Service Provider for Directorate of Registration and Stamps, Govt of MP. We assist in seamless property registration, e-stamping, and legal documentation.
             </p>
           </div>
 
@@ -25,24 +25,25 @@ export function Footer() {
               <li><Link href="/"><a className="hover:text-[#ffc107]">Home</a></Link></li>
               <li><Link href="/services"><a className="hover:text-[#ffc107]">Services</a></Link></li>
               <li><Link href="/calculator"><a className="hover:text-[#ffc107]">Calculators</a></Link></li>
-              <li><a href="#" className="hover:text-[#ffc107]">Privacy Policy</a></li>
+              <li><Link href="/contact"><a className="hover:text-[#ffc107]">Contact Us</a></Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-6 uppercase text-sm tracking-wider">Contact Us</h3>
-            <p className="text-sm mb-4">
-              Paryawas Bhawan, 1st Floor, Block-2, Mother Teresa Road, Arera Hills, Bhopal (M.P.) - 462011
+            <h3 className="text-white font-bold mb-6 uppercase text-sm tracking-wider">Contact Info</h3>
+            <p className="text-sm mb-4 font-bold text-white uppercase">Amit Chopra</p>
+            <p className="text-xs mb-4">
+              V/47 KUM Market Vijay Nagar, Near Airtel Office Jabalpur 482002
             </p>
-            <div className="space-y-2 text-sm">
-              <p>Email: helpdesk@mpigr.gov.in</p>
-              <p>Phone: 0755-2573849</p>
+            <div className="space-y-2 text-xs">
+              <p>Email: osstravel12@gmail.com</p>
+              <p>Phone: 9424705556, 7999131636</p>
             </div>
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-xs">
-          <p>© {new Date().getFullYear()} Directorate of Registration and Stamps, Govt of MP. All Rights Reserved.</p>
+        <div className="mt-12 pt-8 border-t border-white/10 text-center text-[10px] uppercase tracking-widest">
+          <p>© {new Date().getFullYear()} Directorate of Registration and Stamps, Govt of MP. Services Managed by Amit Chopra.</p>
         </div>
       </div>
     </footer>

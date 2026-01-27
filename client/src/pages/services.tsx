@@ -21,18 +21,14 @@ function FileUpload({ label }: { label: string }) {
 }
 
 const serviceDetails = [
-  {
-    id: "lease",
-    title: "E-Registration",
-    description: "Online registration of property documents and deeds.",
-    docs: ["Previous Deed", "ID Proof", "Photos"]
-  },
-  {
-    id: "estamp",
-    title: "E-Stamp Paper",
-    description: "Generate and pay for electronic stamp papers.",
-    docs: ["First Party ID", "Second Party ID", "Agreement Draft"]
-  }
+  { id: "agreement", title: "Agreement", description: "Legal preparation of various types of agreements.", docs: ["ID Proof", "Agreement Draft", "Address Proof"] },
+  { id: "sales-deed", title: "Sales Deed", description: "Official document for the sale and transfer of property.", docs: ["Sale Draft", "Identity Proof", "PAN Card", "Property Tax Receipt"] },
+  { id: "lease-renewal", title: "Renewal of Lease Deed", description: "Hassle-free extension of your existing lease deeds.", docs: ["Previous Lease", "ID Proof", "Current Property Tax Receipt"] },
+  { id: "release-deed", title: "Release Deed", description: "Legal document to renounce rights in a property.", docs: ["Family Member IDs", "Original Property Papers", "Affidavit"] },
+  { id: "gift-deed", title: "Gift Deed", description: "Transfer of property ownership as a gift legally.", docs: ["ID Proof", "Original Property Documents", "Witness Details"] },
+  { id: "will-deed", title: "Will Deed", description: "Legal declaration of a person's intentions regarding their property after death.", docs: ["Identity Proof", "Witness Details", "Medical Certificate"] },
+  { id: "equitable-mortgage", title: "Equitable Mortgage", description: "Creation of mortgage by deposit of title deeds.", docs: ["Original Title Deeds", "Bank Sanction Letter", "ID Proof"] },
+  { id: "mutation", title: "Mutation of Land Property", description: "Update of title ownership in the local land records.", docs: ["Registered Sale Deed", "Application Form", "Updated Tax Receipt"] }
 ];
 
 export default function Services() {
@@ -53,18 +49,20 @@ export default function Services() {
 
       <main className="container mx-auto px-4 py-12">
         <div className="grid gap-8 lg:grid-cols-4">
-          <div className="lg:col-span-1 space-y-4">
+          <div className="lg:col-span-1 space-y-2">
             <h3 className="text-xs font-bold text-[#003366] uppercase tracking-widest mb-4">Categories</h3>
-            {serviceDetails.map((service) => (
-              <a
-                key={service.id}
-                href={`#${service.id}`}
-                className="flex items-center justify-between p-4 bg-white border rounded shadow-sm hover:border-[#003366] transition-all group"
-              >
-                <span className="text-sm font-bold text-slate-700">{service.title}</span>
-                <ArrowRight className="h-4 w-4 text-slate-300 group-hover:text-[#003366]" />
-              </a>
-            ))}
+            <div className="sticky top-24 space-y-2">
+              {serviceDetails.map((service) => (
+                <a
+                  key={service.id}
+                  href={`#${service.id}`}
+                  className="flex items-center justify-between p-3 bg-white border rounded shadow-sm hover:border-[#003366] transition-all group"
+                >
+                  <span className="text-[11px] font-bold text-slate-700 uppercase">{service.title}</span>
+                  <ArrowRight className="h-3 w-3 text-slate-300 group-hover:text-[#003366]" />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="lg:col-span-3 space-y-12">
