@@ -21,14 +21,54 @@ function FileUpload({ label }: { label: string }) {
 }
 
 const serviceDetails = [
-  { id: "agreement", title: "Agreement", description: "Legal preparation of various types of agreements.", docs: ["ID Proof", "Agreement Draft", "Address Proof"] },
-  { id: "sales-deed", title: "Sales Deed", description: "Official document for the sale and transfer of property.", docs: ["Sale Draft", "Identity Proof", "PAN Card", "Property Tax Receipt"] },
-  { id: "lease-renewal", title: "Renewal of Lease Deed", description: "Hassle-free extension of your existing lease deeds.", docs: ["Previous Lease", "ID Proof", "Current Property Tax Receipt"] },
-  { id: "release-deed", title: "Release Deed", description: "Legal document to renounce rights in a property.", docs: ["Family Member IDs", "Original Property Papers", "Affidavit"] },
-  { id: "gift-deed", title: "Gift Deed", description: "Transfer of property ownership as a gift legally.", docs: ["ID Proof", "Original Property Documents", "Witness Details"] },
-  { id: "will-deed", title: "Will Deed", description: "Legal declaration of a person's intentions regarding their property after death.", docs: ["Identity Proof", "Witness Details", "Medical Certificate"] },
-  { id: "equitable-mortgage", title: "Equitable Mortgage", description: "Creation of mortgage by deposit of title deeds.", docs: ["Original Title Deeds", "Bank Sanction Letter", "ID Proof"] },
-  { id: "mutation", title: "Mutation of Land Property", description: "Update of title ownership in the local land records.", docs: ["Registered Sale Deed", "Application Form", "Updated Tax Receipt"] }
+  { 
+    id: "agreement", 
+    title: "Agreement", 
+    description: "Legal preparation of various types of agreements.", 
+    docs: ["Identity Proof (Aadhaar/PAN)", "Agreement Draft", "Address Proof", "Witness Details"] 
+  },
+  { 
+    id: "sales-deed", 
+    title: "Sales Deed", 
+    description: "Official document for the sale and transfer of property.", 
+    docs: ["Duly Signed Sale Deed", "Title Deed (Proof of Ownership)", "Previous Sale Deed", "Property Tax Receipts", "Encumbrance Certificate", "Identity & Address Proof (Buyer + Seller)", "PAN Card (Both Parties)", "Property Photos (Geotagged)"] 
+  },
+  { 
+    id: "lease-renewal", 
+    title: "Renewal of Lease Deed", 
+    description: "Hassle-free extension of your existing lease deeds.", 
+    docs: ["Lease Agreement (Terms/Duration/Rent)", "Title Deed (Lessor's Ownership Proof)", "Identity & Address Proof (Lessor + Lessee)", "Property Tax Receipts", "NOC (if property is mortgaged)", "Previous Lease Deed"] 
+  },
+  { 
+    id: "release-deed", 
+    title: "Release Deed", 
+    description: "Legal document to renounce rights in a property.", 
+    docs: ["Family Member IDs", "Original Property Papers", "Affidavit", "Relinquishing Member's Consent"] 
+  },
+  { 
+    id: "gift-deed", 
+    title: "Gift Deed", 
+    description: "Transfer of property ownership as a gift legally.", 
+    docs: ["Executed Gift Deed", "Title Deed (Donor's Ownership Proof)", "Identity Proof (Donor + Donee)", "Relationship Proof", "Property Tax Receipts", "Valuation ID"] 
+  },
+  { 
+    id: "will-deed", 
+    title: "Will Deed", 
+    description: "Legal declaration of a person's intentions regarding their property after death.", 
+    docs: ["Original Will (Signed Copy)", "Identity Proof (Testator)", "Property Details (Title Deed/Khasra)", "Witness Details (2 Witnesses Required)", "Medical Certificate (Sound Mind Proof)"] 
+  },
+  { 
+    id: "equitable-mortgage", 
+    title: "Equitable Mortgage", 
+    description: "Creation of mortgage by deposit of title deeds.", 
+    docs: ["Original Title Deeds", "Bank Sanction Letter", "Identity Proof", "Address Proof"] 
+  },
+  { 
+    id: "mutation", 
+    title: "Mutation of Land Property", 
+    description: "Update of title ownership in the local land records.", 
+    docs: ["Registered Sale Deed / Gift Deed", "B1 Nakal (Current Land Record)", "Khasra Number Details", "Identity Proof (New Owner)", "Death Certificate (for inheritance)", "Will / Succession Certificate (if inheritance)"] 
+  }
 ];
 
 export default function Services() {
