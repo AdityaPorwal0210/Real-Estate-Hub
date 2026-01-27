@@ -52,6 +52,9 @@ export function Navbar() {
             <Link href="/services">
               <a className={cn("text-white/90 hover:text-white text-sm font-medium", location === "/services" && "text-white underline underline-offset-4")}>Services</a>
             </Link>
+            <Link href="/properties">
+              <a className={cn("text-white/90 hover:text-white text-sm font-medium", location === "/properties" && "text-white underline underline-offset-4")}>Properties Offered</a>
+            </Link>
             <Link href="/calculator">
               <a className={cn("text-white/90 hover:text-white text-sm font-medium", location === "/calculator" && "text-white underline underline-offset-4")}>Calculators</a>
             </Link>
@@ -72,6 +75,7 @@ export function Navbar() {
         <div className="md:hidden bg-[#003366] border-t border-white/10 p-4 space-y-3">
           <Link href="/"><a className="block text-white text-sm py-2">Home</a></Link>
           <Link href="/services"><a className="block text-white text-sm py-2">Services</a></Link>
+          <Link href="/properties"><a className="block text-white text-sm py-2">Properties Offered</a></Link>
           <Link href="/calculator"><a className="block text-white text-sm py-2">Calculators</a></Link>
           <div className="bg-white/10 p-2 text-white text-center rounded text-sm">Login / Register</div>
         </div>

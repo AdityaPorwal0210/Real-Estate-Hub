@@ -1,19 +1,20 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FileText, Calculator, ShieldCheck, ClipboardCheck, ArrowRight, BookOpen, Search, Phone, Mail, MapPin } from "lucide-react";
+import { FileText, Calculator, ShieldCheck, ClipboardCheck, ArrowRight, BookOpen, Search, Phone, Mail, MapPin, Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import prop1 from "@/assets/property-1.jpg";
 import prop2 from "@/assets/property-2.jpg";
 import prop3 from "@/assets/property-3.jpg";
 
 export default function Home() {
+  const [, setLocation] = useLocation();
   const mainActions = [
     { title: "Property Valuation", icon: FileText, color: "bg-blue-600" },
     { title: "Duty & Fee Calculator", icon: Calculator, color: "bg-green-600", href: "/calculator" },
     { title: "E-Stamp Services", icon: ShieldCheck, color: "bg-orange-600" },
-    { title: "Application Search", icon: Search, color: "bg-purple-600" }
+    { title: "Property Dealing", icon: Briefcase, color: "bg-purple-600", href: "/properties" }
   ];
 
   const services = [
@@ -44,10 +45,19 @@ export default function Home() {
               Official Service Provider for Property Registration, E-Stamping, and Land Mutation. Managed by Amit Chopra.
             </p>
             <div className="flex gap-4">
-              <button className="bg-[#ffc107] text-[#003366] px-6 py-2.5 rounded font-bold hover:bg-[#e0a800] transition-colors">
+              <button 
+                onClick={() => setLocation("/services")}
+                className="bg-[#ffc107] text-[#003366] px-6 py-2.5 rounded font-bold hover:bg-[#e0a800] transition-colors"
+              >
                 SERVICES
               </button>
-              <button className="border border-white text-white px-6 py-2.5 rounded font-bold hover:bg-white/10 transition-colors">
+              <button 
+                onClick={() => {
+                  const el = document.getElementById('featured-properties');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="border border-white text-white px-6 py-2.5 rounded font-bold hover:bg-white/10 transition-colors"
+              >
                 PROPERTIES
               </button>
             </div>
@@ -119,7 +129,7 @@ export default function Home() {
         </div>
 
         {/* Properties for Sale Section */}
-        <div className="mt-16 bg-white p-8 rounded-lg shadow-sm border border-slate-200">
+        <div id="featured-properties" className="mt-16 bg-white p-8 rounded-lg shadow-sm border border-slate-200">
           <div className="flex items-center justify-between mb-8 border-b-2 border-slate-200 pb-2">
             <h2 className="text-xl font-bold text-[#003366] uppercase tracking-wide">Featured Properties</h2>
             <div className="text-[#003366] text-xs font-bold uppercase">Admin Listings</div>
