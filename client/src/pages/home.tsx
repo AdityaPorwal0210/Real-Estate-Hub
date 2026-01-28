@@ -12,7 +12,6 @@ export default function Home() {
   const [, setLocation] = useLocation();
   const mainActions = [
     { title: "Property Valuation", icon: FileText, color: "bg-blue-600" },
-    { title: "Duty & Fee Calculator", icon: Calculator, color: "bg-green-600", href: "/calculator" },
     { title: "E-Stamp Services", icon: ShieldCheck, color: "bg-orange-600" },
     { title: "Property Dealing", icon: Briefcase, color: "bg-purple-600", href: "/properties" }
   ];
@@ -21,7 +20,7 @@ export default function Home() {
     { title: "Agreement", desc: "Legal preparation of various agreements", icon: FileText },
     { title: "Sales Deed", desc: "Official property sale documentation", icon: ClipboardCheck },
     { title: "Lease Deed Renewal", desc: "Seamless lease extensions", icon: BookOpen },
-    { title: "Mutation of Land", desc: "Land record title updates", icon: Calculator }
+    { title: "Mutation of Land", desc: "Land record title updates", icon: ShieldCheck }
   ];
 
   const forSaleProperties = [
