@@ -7,6 +7,9 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
 import Properties from "@/pages/properties";
+import OurProcess from "@/pages/process";
+import Login from "@/pages/login";
+import Register from "@/pages/register";
 import Contact from "@/pages/contact";
 
 function Router() {
@@ -14,7 +17,10 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/process" component={OurProcess} />
       <Route path="/properties" component={Properties} />
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
