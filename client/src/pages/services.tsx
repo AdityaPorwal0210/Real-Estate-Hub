@@ -25,13 +25,13 @@ const serviceDetails = [
     id: "agreement", 
     title: "Agreement", 
     description: "Legal preparation of various types of agreements.", 
-    docs: ["Identity Proof (Aadhaar/PAN)", "Agreement Draft", "Address Proof", "Witness Details"] 
+    docs: ["Identity Proof (Aadhaar/PAN)", "Agreement Draft", "Address Proof", "Witness Details", "NOC / P1/P2 Khasra", "Mutation of Land Record"] 
   },
   { 
     id: "sales-deed", 
     title: "Sales Deed", 
     description: "Official document for the sale and transfer of property.", 
-    docs: ["Duly Signed Sale Deed", "Title Deed (Proof of Ownership)", "Previous Sale Deed", "Property Tax Receipts", "Encumbrance Certificate", "Identity & Address Proof (Buyer + Seller)", "PAN Card (Both Parties)", "Property Photos (Geotagged)"] 
+    docs: ["Duly Signed Sale Deed", "Title Deed (Proof of Ownership)", "Previous Sale Deed", "Property Tax Receipts", "Encumbrance Certificate", "Identity & Address Proof (Buyer + Seller)", "PAN Card (Both Parties)", "Property Photos (Geotagged)", "NOC / P1/P2 Khasra", "Mutation of Land Record"] 
   },
   { 
     id: "lease-renewal", 
@@ -43,31 +43,31 @@ const serviceDetails = [
     id: "release-deed", 
     title: "Release Deed", 
     description: "Legal document to renounce rights in a property.", 
-    docs: ["Family Member IDs", "Original Property Papers", "Affidavit", "Relinquishing Member's Consent"] 
+    docs: ["Family Member IDs", "Original Property Papers", "Affidavit", "Relinquishing Member's Consent", "NOC / P1/P2 Khasra", "Mutation of Land Record"] 
   },
   { 
     id: "gift-deed", 
     title: "Gift Deed", 
     description: "Transfer of property ownership as a gift legally.", 
-    docs: ["Executed Gift Deed", "Title Deed (Donor's Ownership Proof)", "Identity Proof (Donor + Donee)", "Relationship Proof", "Property Tax Receipts", "Valuation ID"] 
+    docs: ["Executed Gift Deed", "Title Deed (Donor's Ownership Proof)", "Identity Proof (Donor + Donee)", "Relationship Proof", "Property Tax Receipts", "Valuation ID", "NOC / P1/P2 Khasra", "Mutation of Land Record"] 
   },
   { 
     id: "will-deed", 
     title: "Will Deed", 
     description: "Legal declaration of a person's intentions regarding their property after death.", 
-    docs: ["Original Will (Signed Copy)", "Identity Proof (Testator)", "Property Details (Title Deed/Khasra)", "Witness Details (2 Witnesses Required)", "Medical Certificate (Sound Mind Proof)"] 
+    docs: ["Original Will (Signed Copy)", "Identity Proof (Testator)", "Property Details (Title Deed/Khasra)", "Witness Details (2 Witnesses Required)", "Medical Certificate (Sound Mind Proof)", "NOC / P1/P2 Khasra", "Mutation of Land Record"] 
   },
   { 
     id: "equitable-mortgage", 
     title: "Equitable Mortgage", 
     description: "Creation of mortgage by deposit of title deeds.", 
-    docs: ["Original Title Deeds", "Bank Sanction Letter", "Identity Proof", "Address Proof"] 
+    docs: ["Original Title Deeds", "Bank Sanction Letter", "Identity Proof", "Address Proof", "NOC / P1/P2 Khasra", "Mutation of Land Record"] 
   },
   { 
     id: "mutation", 
     title: "Mutation of Land Property", 
     description: "Update of title ownership in the local land records.", 
-    docs: ["Registered Sale Deed / Gift Deed", "B1 Nakal (Current Land Record)", "Khasra Number Details", "Identity Proof (New Owner)", "Death Certificate (for inheritance)", "Will / Succession Certificate (if inheritance)"] 
+    docs: ["Registered Sale Deed / Gift Deed", "P1/P2 Khasra (Current Land Record)", "Khasra Number Details", "Identity Proof (New Owner)", "Death Certificate (for inheritance)", "Will / Succession Certificate (if inheritance)", "NOC / P1/P2 Khasra", "Mutation of Land Record"] 
   }
 ];
 
@@ -105,9 +105,24 @@ export default function Services() {
             </div>
           </div>
 
-          <div className="lg:col-span-3 space-y-12">
-            {serviceDetails.map((service) => (
-              <section key={service.id} id={service.id} className="scroll-mt-24">
+          <div className="lg:col-span-3">
+            <div className="bg-[#ffc107]/10 border-l-4 border-[#ffc107] p-6 mb-12 rounded-r-lg">
+              <div className="flex gap-4">
+                <div className="bg-[#ffc107] p-2 rounded-full h-fit mt-1">
+                  <FileText className="h-4 w-4 text-[#003366]" />
+                </div>
+                <div>
+                  <h3 className="text-[#003366] font-bold uppercase text-sm mb-2 tracking-wide">Important Property Document Requirement</h3>
+                  <p className="text-[#003366]/80 text-xs leading-relaxed">
+                    If the property is owned by <span className="font-bold">Nagar Nigam, Housing Board, or JDA</span>, kindly upload the <span className="font-bold uppercase underline">NOC</span>. Otherwise, upload <span className="font-bold uppercase underline">P1/P2 Khasra</span> and <span className="font-bold uppercase underline">Mutation of Land Record</span>. This is mandatory for all services except Lease Deed Renewal.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-12">
+              {serviceDetails.map((service) => (
+                <section key={service.id} id={service.id} className="scroll-mt-24">
                 <Card className="sampada-card">
                   <CardHeader className="border-b border-slate-100 bg-slate-50/50">
                     <div className="flex items-center gap-3">
