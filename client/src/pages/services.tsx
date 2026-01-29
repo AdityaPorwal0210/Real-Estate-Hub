@@ -123,48 +123,49 @@ export default function Services() {
             <div className="space-y-12">
               {serviceDetails.map((service) => (
                 <section key={service.id} id={service.id} className="scroll-mt-24">
-                <Card className="sampada-card">
-                  <CardHeader className="border-b border-slate-100 bg-slate-50/50">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-[#003366] p-2 rounded text-white">
-                        <FileText className="h-5 w-5" />
+                  <Card className="sampada-card">
+                    <CardHeader className="border-b border-slate-100 bg-slate-50/50">
+                      <div className="flex items-center gap-3">
+                        <div className="bg-[#003366] p-2 rounded text-white">
+                          <FileText className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <CardTitle className="text-lg font-bold text-[#003366] uppercase">{service.title}</CardTitle>
+                          <CardDescription className="text-xs">{service.description}</CardDescription>
+                        </div>
                       </div>
-                      <div>
-                        <CardTitle className="text-lg font-bold text-[#003366] uppercase">{service.title}</CardTitle>
-                        <CardDescription className="text-xs">{service.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="p-8 space-y-8">
+                      <div className="grid gap-4 bg-blue-50/50 p-4 rounded border border-blue-100">
+                        <h4 className="text-xs font-bold text-[#003366] uppercase flex items-center gap-2">
+                          <CheckCircle2 className="h-4 w-4" />
+                          Required Documents Checklist
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {service.docs.map(doc => (
+                            <span key={doc} className="bg-white px-3 py-1 rounded-full text-[10px] font-bold text-slate-600 border border-slate-200">
+                              {doc}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-8 space-y-8">
-                    <div className="grid gap-4 bg-blue-50/50 p-4 rounded border border-blue-100">
-                      <h4 className="text-xs font-bold text-[#003366] uppercase flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4" />
-                        Required Documents Checklist
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {service.docs.map(doc => (
-                          <span key={doc} className="bg-white px-3 py-1 rounded-full text-[10px] font-bold text-slate-600 border border-slate-200">
-                            {doc}
-                          </span>
+                      
+                      <div className="grid gap-6 sm:grid-cols-3">
+                        {service.docs.map((doc, i) => (
+                          <FileUpload key={i} label={doc} />
                         ))}
                       </div>
-                    </div>
-                    
-                    <div className="grid gap-6 sm:grid-cols-3">
-                      {service.docs.map((doc, i) => (
-                        <FileUpload key={i} label={doc} />
-                      ))}
-                    </div>
 
-                    <div className="pt-4">
-                      <Button className="w-full sampada-btn-primary py-6 uppercase tracking-widest font-bold">
-                        Proceed to Application
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </section>
-            ))}
+                      <div className="pt-4">
+                        <Button className="w-full sampada-btn-primary py-6 uppercase tracking-widest font-bold">
+                          Proceed to Application
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </section>
+              ))}
+            </div>
           </div>
         </div>
       </main>
