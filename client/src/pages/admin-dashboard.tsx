@@ -19,14 +19,12 @@ import {
   CartesianGrid, 
   Tooltip, 
   ResponsiveContainer, 
-  LineChart, 
-  Line,
   AreaChart,
   Area
 } from "recharts";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useState } from "react";
 
-const statsData = [
+const weeklyData = [
   { name: 'Mon', users: 400 },
   { name: 'Tue', users: 300 },
   { name: 'Wed', users: 600 },
@@ -34,6 +32,28 @@ const statsData = [
   { name: 'Fri', users: 500 },
   { name: 'Sat', users: 900 },
   { name: 'Sun', users: 1100 },
+];
+
+const monthlyData = [
+  { name: 'Week 1', users: 2400 },
+  { name: 'Week 2', users: 3200 },
+  { name: 'Week 3', users: 2800 },
+  { name: 'Week 4', users: 4500 },
+];
+
+const yearlyData = [
+  { name: 'Jan', users: 4000 },
+  { name: 'Feb', users: 3500 },
+  { name: 'Mar', users: 5000 },
+  { name: 'Apr', users: 4800 },
+  { name: 'May', users: 6000 },
+  { name: 'Jun', users: 5500 },
+  { name: 'Jul', users: 7200 },
+  { name: 'Aug', users: 8000 },
+  { name: 'Sep', users: 7500 },
+  { name: 'Oct', users: 9000 },
+  { name: 'Nov', users: 8500 },
+  { name: 'Dec', users: 11000 },
 ];
 
 const mockUsers = [
@@ -73,6 +93,15 @@ const mockUsers = [
 ];
 
 export default function AdminDashboard() {
+  const [timeframe, setTimeframe] = useState("weekly");
+
+  const getChartData = () => {
+    switch (timeframe) {
+      case "monthly": return monthlyData;
+      case "yearly": return yearlyData;
+      default: return weeklyData;
+    }
+  };
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <Navbar />
@@ -139,13 +168,28 @@ export default function AdminDashboard() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <Card className="shadow-sm">
-            <CardHeader>
-              <CardTitle className="text-xs font-bold uppercase tracking-widest text-slate-500">User Growth (Weekly)</CardTitle>
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-xs font-bold uppercase tracking-widest text-slate-500">User Growth</CardTitle>
+              <div className="flex bg-slate-100 p-1 rounded-md">
+                {['weekly', 'monthly', 'yearly'].map((t) => (
+                  <button
+                    key={t}
+                    onClick={() => setTimeframe(t)}
+                    className={`px-3 py-1 text-[9px] font-bold uppercase rounded transition-all ${
+                      timeframe === t 
+                        ? 'bg-white text-[#003366] shadow-sm' 
+                        : 'text-slate-400 hover:text-slate-600'
+                    }`}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
             </CardHeader>
             <CardContent>
               <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <AreaChart data={statsData}>
+                  <AreaChart data={getChartData()}>
                     <defs>
                       <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#003366" stopOpacity={0.1}/>
@@ -170,7 +214,7 @@ export default function AdminDashboard() {
             <CardContent>
               <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={statsData}>
+                  <BarChart data={weeklyData}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} />
                     <XAxis dataKey="name" fontSize={10} tickLine={false} axisLine={false} />
                     <YAxis fontSize={10} tickLine={false} axisLine={false} />
