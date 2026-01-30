@@ -11,6 +11,7 @@ import OurProcess from "@/pages/process";
 import Login from "@/pages/login";
 import Register from "@/pages/register";
 import Contact from "@/pages/contact";
+import AdminDashboard from "@/pages/admin-dashboard";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/contact" component={Contact} />
+      <Route path="/admin" component={AdminDashboard} />
       <Route component={NotFound} />
     </Switch>
   );
