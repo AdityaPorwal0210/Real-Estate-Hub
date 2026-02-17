@@ -20,7 +20,7 @@ export default function Register() {
         >
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-[#003366] uppercase tracking-wider mb-2">Create Account</h1>
-            <p className="text-slate-500 text-sm">Join Sampada 2.0 portal for Jabalpur services</p>
+            <p className="text-slate-500 text-sm">Join Lekha portal for Jabalpur services</p>
           </div>
 
           <Card className="sampada-card">

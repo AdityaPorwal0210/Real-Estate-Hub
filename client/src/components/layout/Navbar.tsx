@@ -36,7 +36,7 @@ export function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="text-white font-bold text-lg leading-tight uppercase">
-                  Sampada 2.0
+                  Lekha
                 </span>
                 <span className="text-white/80 text-[10px] leading-tight font-medium">
                   IGRS - Management of Property & Documents

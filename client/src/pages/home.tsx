@@ -38,7 +38,7 @@ export default function Home() {
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
           <div className="max-w-xl">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide">
-              Sampada 2.0 - Jabalpur
+              Lekha - Jabalpur
             </h1>
             <p className="text-white/80 text-lg mb-8">
               Official Service Provider for Property Registration, E-Stamping, and Land Mutation. Managed by Amit Chopra.

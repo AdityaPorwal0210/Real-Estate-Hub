@@ -72,10 +72,10 @@ export default function OurProcess() {
       <div className="bg-[#003366] py-16">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold text-white uppercase tracking-wider text-center">
-            Our Working Process
+            Lekha - Our Working Process
           </h1>
           <p className="mt-4 text-white/70 text-center max-w-2xl mx-auto uppercase text-xs font-bold tracking-widest">
-            Step-by-Step Guide following Sampada 2.0 Guidelines
+            Step-by-Step Guide following official Guidelines
           </p>
         </div>
       </div>

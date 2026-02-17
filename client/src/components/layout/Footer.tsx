@@ -11,7 +11,7 @@ export function Footer() {
                 <img src="/favicon.png" alt="Logo" className="h-8 w-8" />
               </div>
               <span className="text-white font-bold text-lg leading-tight uppercase">
-                Sampada 2.0 - Jabalpur
+                Lekha - Jabalpur
               </span>
             </div>
             <p className="text-sm leading-relaxed max-w-md">
