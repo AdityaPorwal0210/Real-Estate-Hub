@@ -189,7 +189,7 @@ export default function Home() {
                        <div className="text-[#003366]"><Mail className="h-5 w-5" /></div>
                        <div>
                           <p className="text-xs font-bold text-slate-500 uppercase">Support Email</p>
-                          <p className="text-sm font-bold text-[#003366]">osstravel12@gmail.com</p>
+                          <p className="text-sm font-bold text-[#003366]">osstravels12@gmail.com</p>
                        </div>
                     </div>
                  </div>

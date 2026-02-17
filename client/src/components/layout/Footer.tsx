@@ -35,7 +35,7 @@ export function Footer() {
               V/47 KUM Market Vijay Nagar, Near Airtel Office Jabalpur 482002
             </p>
             <div className="space-y-2 text-xs">
-              <p>Email: osstravel12@gmail.com</p>
+              <p>Email: osstravels12@gmail.com</p>
               <p>Phone: 9424705556, 7999131636</p>
             </div>
           </div>
